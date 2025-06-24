@@ -25,10 +25,7 @@
 
 - **設計変数** :  
   体積密度場  
-  $
-    \rho(\mathbf{x}) \in [\rho_{\min},1], \qquad
-    E(\rho) = E_{\min} + \rho^p\bigl(E_0 - E_{\min}\bigr)
-  $  
+  $\rho(\mathbf{x}) \in [\rho_{\min},1], \qquad　E(\rho) = E_{\min} + \rho^p\bigl(E_0 - E_{\min}\bigr)$  
   ここで \(p \ge 1\) は SIMP ペナルティ指数。  
 
 - **状態変数** :  
