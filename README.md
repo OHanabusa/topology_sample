@@ -19,7 +19,7 @@
 ## 2. 問題設定（静解析）
 - **設計変数** : 体積密度場 $\rho(\mathbf{\theta}) \in [0,1] \qquad$    例： $\rho(\mathbf{\theta}) = 0.5*(\text{tanh}(\mathbf{\theta})+1)$
 - **状態変数** : 変位場 $u(\mathbf{x})$  
-- **目的関数** : $F\bigl(u,\theta\bigr)$（例：特定点の変位，構造全体のコンプライアンスなど） $F(u, \theta) = \int$
+- **目的関数** : $F\bigl(u,\theta\bigr)$（例：特定点の変位，構造全体のコンプライアンスなど） $F(u, \theta) = \int_{\Gamma_{ext}}$
 - **残差（弱形式）** : $R\bigl(u,\theta, \delta u\bigr)=0$  
 - **ラグランジアン** :  $\mathcal{L}(u,\theta,\delta u)=F(u,\theta)-R(u,\rho, \delta u)$
 
