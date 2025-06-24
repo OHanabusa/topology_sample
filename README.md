@@ -9,8 +9,8 @@
 ---
 
 ## 1. はじめに
-トポロジー最適化は**材料分布を最適化し，目標性能を最大化（または最小化）**する設計手法です。  
-この README では **ラグランジアンの微分**を用いた一般的フレームワークをまとめます。  
+トポロジー最適化は**材料分布を最適化し，目標性能を最大化（または最小化）**する設計手法です．  
+この README では **ラグランジアンの微分**を用いた一般的フレームワークをまとめます．  
 
 > **キーワード**: Lagrangian, adjoint method, sensitivity analysis, SIMP, MMA, H¹‐gradient
 
@@ -34,9 +34,9 @@
 
 ```mermaid
 flowchart TD
-    A["STEP 0<br/>初期密度 ρ₀"] --> B["STEP 1<br/>状態方程式 FEM<br/>∂L/∂ \delta u u'"]
-    B --> C["STEP 2<br/>随伴方程式<br/>∂L/∂u"]
-    C --> D["STEP 3<br/>感度解析<br/>∂L/∂\theta"]
+    A["STEP 0<br/>初期密度 ρ₀"] --> B["STEP 1<br/>状態方程式 FEM<br/>"]
+    B --> C["STEP 2<br/>随伴方程式<br/>"]
+    C --> D["STEP 3<br/>感度解析<br/>"]
     D --> E{{"STEP 4<br/>密度更新"}}
 
     %% ★ ラベル付きエッジはスペースを入れないこと！
@@ -53,20 +53,21 @@ flowchart TD
 
 ## 4. ステップバイステップ解説
 ### Step 1 : 状態方程式の求解  
-$\displaystyle \frac{\partial \mathcal{L}}{\partial v}\delta v'=0  \; \Longrightarrow \; R(u,\rho;v)=0 \quad\forall v$  
-→ FEM により変位 $u$ を得る。
+ガトー微分を用いて
+$\displaystyle \frac{\partial \mathcal{L}}{\partial \delta u}\delta u'=0  \quad\forall \delta u'$  
+→ 上の式を解くことで変位 $u$ を得る．
 
 ---
 
 ### Step 2 : 随伴方程式の求解  
-$\displaystyle \frac{\partial \mathcal{L}}{\partial u}(u,\rho,\lambda)=0  \; \Longrightarrow \; \text{adjoint equation for } \lambda$  
-→ 同じメッシュ／剛性行列を用いて逆問題を解く。
+$\displaystyle \frac{\partial \mathcal{L}}{\partial u} u'=0 $  
+→ 上の式を解くことで$\delta u$を得る．
 
 ---
 
 ### Step 3 : 感度解析  
-$\displaystyle g(\mathbf{x})=\frac{\partial \mathcal{L}}{\partial \rho}(u,\rho,\lambda)$  
-→ 体積密度の局所感度。  
+$\displaystyle g(\mathbf{\theta})=\frac{\partial \mathcal{L}}{\partial \theta} \theta'$  
+→ 体積密度の局所感度．  
 
 ---
 
