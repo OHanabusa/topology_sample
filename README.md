@@ -23,6 +23,49 @@
 - **残差（弱形式）** : $R\bigl(u,\theta, \delta u\bigr)=0$  
 - **ラグランジアン** :  $\mathcal{L}(u,\theta,\delta u)=F(u,\theta)-R(u,\rho, \delta u)$
 
+- **設計変数** :  
+  体積密度場  
+  $$
+    \rho(\mathbf{x}) \in [\rho_{\min},1], \qquad
+    E(\rho) = E_{\min} + \rho^p\bigl(E_0 - E_{\min}\bigr)
+  $$  
+  ここで \(p \ge 1\) は SIMP ペナルティ指数。  
+
+- **状態変数** :  
+  変位場  
+  $$
+    u(\mathbf{x}) 
+    \;\;(\text{2 D 片持ち梁なら } u = (u_x, u_y)^{\!\top})
+  $$  
+
+- **目的関数** :  
+  荷重点の鉛直変位最小化  
+  $$
+    F(u,\rho) = u_y(\mathbf{x}_{\text{tip}})
+  $$  
+
+- **残差（弱形式）** :  
+  $$
+    R(u,\rho;\delta u) =
+    \int_{\Omega} \rho^{\,p}\,\boldsymbol{\sigma}(u) : \boldsymbol{\varepsilon}(\delta u)\,\mathrm{d}\Omega
+    - \int_{\Gamma_N} \mathbf{t} \!\cdot\! \delta u \,\mathrm{d}\Gamma
+    = 0 \quad \forall\,\delta u
+  $$  
+
+- **ラグランジアン** :  
+  $$
+    \mathcal{L}(u,\rho,\lambda) =
+    F(u,\rho) - 
+    \Bigl[
+      \int_{\Omega} \rho^{\,p}\,\boldsymbol{\sigma}(u) : \boldsymbol{\varepsilon}(\lambda)\,\mathrm{d}\Omega
+      - \int_{\Gamma_N} \mathbf{t} \!\cdot\! \lambda \,\mathrm{d}\Gamma
+    \Bigr]
+  $$  
+
+*（コンプライアンス最小化の場合は  
+\(F(u,\rho)=\displaystyle\int_{\Gamma_N}\mathbf{t}\!\cdot\!u\,\mathrm{d}\Gamma\) とするなど、目的関数を置き換えてください）*
+
+
 ---
 
 ## 3. アルゴリズムの全体像
