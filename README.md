@@ -44,25 +44,35 @@
 
 ```mermaid
 flowchart TD
-  %% --------  Topology Optimization (Static)  -------- %%
-  A[STEP 0<br/>初期化：設計密度 ρ₀] --> B[STEP 1<br/>状態方程式を FEM で解く<br/>(構造式) u(ρ)]
-  B --> C[STEP 2<br/>随伴方程式を解く<br/>(adjoint) λ]
-  C --> D[STEP 3<br/>感度解析<br/>g(x) = ∂𝓛/∂ρ]
+    %% ----------  Topology Optimization (Static)  ---------- %%
+    %% ノード定義
+    A["STEP&nbsp;0<br/>初期化:<br/>設計密度&nbsp;&rho;<sub>0</sub>"]
+    B["STEP&nbsp;1<br/>状態方程式を FEM で解く<br/>u(&rho;)"]
+    C["STEP&nbsp;2<br/>随伴方程式を解く<br/>&lambda;"]
+    D["STEP&nbsp;3<br/>感度解析<br/>g = &part;&Lscr;/&part;&rho;"]
+    E{{"STEP&nbsp;4<br/>密度更新手法"}}
+    F["H<sup>1</sup> 勾配法<br/>&rho; = &rho; - &alpha;&nbsp;&Delta;<sup>-1</sup>g"]
+    G["MMA<br/>&rho; = MMA(g,&nbsp;制約)"]
+    H{{収束判定<br/>&vert;&vert;&nabla;F&vert;&vert;&nbsp;&lt;&nbsp;&epsilon;?}}
+    I["最適トポロジー<br/>&rho;<sup>*</sup>"]
 
-  D --> E{{STEP 4<br/>密度更新手法}}
-  E -->|H¹ 勾配法| F[ρ ← ρ - α Δ⁻¹ g]
-  E -->|MMA|      G[ρ ← MMA(g, 制約)]
+    %% リンク
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E -->|H<sup>1</sup>| F
+    E -->|MMA|      G
+    F --> H
+    G --> H
+    H -- "いいえ" --> B
+    H -- "はい"   --> I
 
-  F --> H{収束判定<br/>||∇F|| < ε?}
-  G --> H
+    %% スタイリング（任意）
+    classDef step fill:#f7f9fc,stroke:#202636,stroke-width:1px,rx:6,ry:6
+    class A,B,C,D,E,F,G,H,I step
+    class H fill:#ffe5b4
 
-  H -- いいえ --> B
-  H -- はい  --> I[最適トポロジー<br/>ρ\* を出力]
-
-  %% Styling %%
-  classDef step fill:#f7f9fc,stroke:#202636,stroke-width:1px,rx:6,ry:6
-  class A,B,C,D,E,F,G,H,I step
-  class H fill:#ffe5b4
 ```
 
 ---
