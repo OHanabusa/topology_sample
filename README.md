@@ -1,5 +1,4 @@
-# Topology Optimization via Lagrangian Differentiation  
-静解析版 ― README
+# Topology Optimization via Lagrangian Differentiation　静解析版 
 
 ## 目次
 1. はじめに  
@@ -15,7 +14,7 @@
 
 ## 1. はじめに
 トポロジー最適化は**材料分布を最適化し，目標性能を最大化（または最小化）**する設計手法です。  
-この README では **ラグランジアンの微分**を用いた一般的フレームワークを，初学者でも追えるようにまとめます。  
+この README では **ラグランジアンの微分**を用いた一般的フレームワークをまとめます。  
 
 > **キーワード**: Lagrangian, adjoint method, sensitivity analysis, SIMP, MMA, H¹‐gradient
 
