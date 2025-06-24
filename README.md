@@ -73,8 +73,7 @@ $\displaystyle \frac{\partial \mathcal{L}}{\partial \lambda}(u,\rho,\lambda)=0  
 ---
 
 ### Step 2 : 随伴方程式の求解  
-$\displaystyle \frac{\partial \mathcal{L}}{\partial u}(u,\rho,\lambda)=0  
-\; \Longrightarrow \; \text{adjoint equation for } \lambda$  
+$\displaystyle \frac{\partial \mathcal{L}}{\partial u}(u,\rho,\lambda)=0  \; \Longrightarrow \; \text{adjoint equation for } \lambda$  
 → 同じメッシュ／剛性行列を用いて逆問題を解く。
 
 ---
