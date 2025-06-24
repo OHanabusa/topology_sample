@@ -42,6 +42,7 @@ nonlinear.pyを例として式を表す．
 $\displaystyle \frac{\partial \mathcal{L}}{\partial \delta u}\delta u'=0  \quad\forall \delta u'$  
 
 ここで，u'はuに対するテスト関数である．
+
 → 上の式を解くことで変位 $u$ を得る．
 
 上の式はFenicsではfe.derivative(L, $\delta u$ , $\delta u'$)　と書く．
