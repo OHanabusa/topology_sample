@@ -29,9 +29,44 @@ nonlinear.pyを例として式を表す．
 ## 3. アルゴリズムの全体像
 1. **状態方程式**（構造式）を解く  
 2. **随伴方程式**を解く  
-3. **感度（勾配）**を評価  
+3. **感度（勾配）** を評価  
 4. **密度場の更新**（MMA⁄H¹勾配法など）  
 5. 収束判定 → 収束していなければ 1. へ
+
+---
+
+## 4. ステップバイステップ解説
+### Step 1 : 状態方程式の求解  
+ガトー微分（）を用いて
+$\displaystyle \frac{\partial \mathcal{L}}{\partial \delta u}\delta u'=0  \quad\forall \delta u'$  
+→ 上の式を解くことで変位 $u$ を得る．
+
+上の式はFenicsではfe.derivative(L, $\delta u$ , $\delta u'$)　と書く．
+
+---
+
+### Step 2 : 随伴方程式の求解  
+$\displaystyle \frac{\partial \mathcal{L}}{\partial u} u'=0 $  
+→ 上の式を解くことで$\delta u$を得る．
+
+---
+
+### Step 3 : 感度解析  
+$\displaystyle g(\mathbf{\theta})=\frac{\partial \mathcal{L}}{\partial \theta} \theta'$  
+→ を計算することで感度が得られる． 
+
+---
+
+### Step 4 : 密度更新  
+- **H¹‐gradient**  
+  \[
+  \rho^{k+1} = \rho^{k} - \alpha \, \Delta^{-1} g
+  \]
+- **MMA**  
+  ```text
+  minimize   MMA sub-problem
+  subject to volume constraint
+
 
 ```mermaid
 flowchart TD
@@ -49,35 +84,3 @@ flowchart TD
     H -- "No"  --> B
     H -- "Yes" --> I["最適トポロジー<br/>ρ*"]
 ```
-
----
-
-## 4. ステップバイステップ解説
-### Step 1 : 状態方程式の求解  
-ガトー微分を用いて
-$\displaystyle \frac{\partial \mathcal{L}}{\partial \delta u}\delta u'=0  \quad\forall \delta u'$  
-→ 上の式を解くことで変位 $u$ を得る．
-
----
-
-### Step 2 : 随伴方程式の求解  
-$\displaystyle \frac{\partial \mathcal{L}}{\partial u} u'=0 $  
-→ 上の式を解くことで$\delta u$を得る．
-
----
-
-### Step 3 : 感度解析  
-$\displaystyle g(\mathbf{\theta})=\frac{\partial \mathcal{L}}{\partial \theta} \theta'$  
-→ 体積密度の局所感度．  
-
----
-
-### Step 4 : 密度更新  
-- **H¹‐gradient**  
-  \[
-  \rho^{k+1} = \rho^{k} - \alpha \, \Delta^{-1} g
-  \]
-- **MMA**  
-  ```text
-  minimize   MMA sub-problem
-  subject to volume constraint
