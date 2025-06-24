@@ -37,7 +37,7 @@ nonlinear.pyを例として式を表す．
 
 ## 4. ステップバイステップ解説
 ### Step 1 : 状態方程式の求解  
-方向微分をとるのにガトー微分する
+方向微分をとるのにガトー微分する．
 $\displaystyle \frac{\partial \mathcal{L}}{\partial \delta u}\delta u'=0  \quad\forall \delta u'$  
 → 上の式を解くことで変位 $u$ を得る．
 
