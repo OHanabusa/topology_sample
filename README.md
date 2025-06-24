@@ -42,7 +42,7 @@
 4. **密度場の更新**（MMA⁄H¹勾配法など）  
 5. 収束判定 → 収束していなければ 1. へ
 
-```mermaid```
+```mermaid
 flowchart TD
   %% --------  Topology Optimization (Static)  -------- %%
   A[STEP 0<br/>初期化：設計密度 ρ₀] --> B[STEP 1<br/>状態方程式を FEM で解く<br/>(構造式) u(ρ)]
