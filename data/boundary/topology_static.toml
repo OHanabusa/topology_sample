@@ -1,6 +1,12 @@
+[structure]
+traction_force = -0.1
+
+[optimization]
 alpha_exp = 3.0
 alpha_vol = 0.5
 ca = 1.0
 cD = 1.0
 max_number_iter = 100
-output_span = 10
+max_move = 0.1
+output_span = 1
+plot_output_span = 1
