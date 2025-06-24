@@ -62,7 +62,7 @@ flowchart TD
 
 ## 4. ステップバイステップ解説
 ### Step 1 : 状態方程式の求解  
-$\displaystyle \frac{\partial \mathcal{L}}{\partial \lambda}(u,\rho,\lambda)=0  \; \Longrightarrow \; R(u,\rho;v)=0 \quad\forall v$  
+$\displaystyle \frac{\partial \mathcal{L}}{\partial \lambda}\delta u'=0  \; \Longrightarrow \; R(u,\rho;v)=0 \quad\forall v$  
 → FEM により変位 $u$ を得る。
 
 ---
