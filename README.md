@@ -44,30 +44,19 @@
 
 ```mermaid
 flowchart TD
-    %% ----------  Topology Optimization (Static)  ---------- %%
-    %% ノード
-    A["STEP 0<br/>初期密度 ρ0"]
-    B["STEP 1<br/>状態方程式 FEM<br/>u(ρ)"]
-    C["STEP 2<br/>随伴方程式<br/>λ"]
-    D["STEP 3<br/>感度解析<br/>g = ∂L/∂ρ"]
-    E{{"STEP 4<br/>密度更新"}}
-    F["H1 勾配法"]
-    G["MMA"]
-    H{{"収束判定<br/>||∇F|| < ε?"}}
-    I["最適トポロジー<br/>ρ*"]
+    A["STEP 0<br/>初期密度 ρ₀"] --> B["STEP 1<br/>状態方程式 FEM<br/>u(ρ)"]
+    B --> C["STEP 2<br/>随伴方程式<br/>λ"]
+    C --> D["STEP 3<br/>感度解析<br/>g = ∂L/∂ρ"]
+    D --> E{{"STEP 4<br/>密度更新"}}
 
-    %% エッジ（必ず改行）
-    A --> B
-    B --> C
-    C --> D
-    D --> E
-    E -->|H1|  F
-    E -->|MMA| G
-    F --> H
+    %% ★ ラベル付きエッジはスペースを入れないこと！
+    E -->|H1|F["H¹ 勾配法"]
+    E -->|MMA|G["MMA"]
+
+    F --> H{{"収束判定<br/>||∇F|| < ε?"}}
     G --> H
     H -- "No"  --> B
-    H -- "Yes" --> I
-
+    H -- "Yes" --> I["最適トポロジー<br/>ρ*"]
 ```
 
 ---
