@@ -5,10 +5,6 @@
 2. 問題設定  
 3. アルゴリズムの全体像  
 4. ステップバイステップ解説  
-5. 例題：片持ち梁の剛性化  
-6. フローチャート（Mermaid）  
-7. 事実と考察の整理  
-8. 参考文献  
 
 ---
 
@@ -24,13 +20,8 @@
 - **設計変数** : 体積密度場 $\rho(\mathbf{\theta})$  
 - **状態変数** : 変位場 $u(\mathbf{x})$  
 - **目的関数** : $F\bigl(u,\theta\bigr)$（例：特定点の変位，構造全体のコンプライアンスなど）  
-- **残差（弱形式）** : $R\bigl(u,\theta;v\bigr)=0$  ※$v$ はテスト関数  
-- **ラグランジアン** :  
-
-
-$\mathcal{L}(u,\rho,\lambda)=F(u,\rho)-R(u,\rho;\lambda)$
-
-ここで $\lambda$ は随伴変数（テスト関数に対応）。
+- **残差（弱形式）** : $R\bigl(u,\theta, \delta u\bigr)=0$  
+- **ラグランジアン** :  $\mathcal{L}(u,\theta,\delta u)=F(u,\theta)-R(u,\rho, \delta u)$
 
 ---
 
@@ -43,9 +34,9 @@ $\mathcal{L}(u,\rho,\lambda)=F(u,\rho)-R(u,\rho;\lambda)$
 
 ```mermaid
 flowchart TD
-    A["STEP 0<br/>初期密度 ρ₀"] --> B["STEP 1<br/>状態方程式 FEM<br/>∂L/∂u'"]
+    A["STEP 0<br/>初期密度 ρ₀"] --> B["STEP 1<br/>状態方程式 FEM<br/>∂L/∂\delta u u'"]
     B --> C["STEP 2<br/>随伴方程式<br/>∂L/∂u"]
-    C --> D["STEP 3<br/>感度解析<br/>∂L/∂ρ"]
+    C --> D["STEP 3<br/>感度解析<br/>∂L/∂\theta"]
     D --> E{{"STEP 4<br/>密度更新"}}
 
     %% ★ ラベル付きエッジはスペースを入れないこと！
@@ -62,7 +53,7 @@ flowchart TD
 
 ## 4. ステップバイステップ解説
 ### Step 1 : 状態方程式の求解  
-$\displaystyle \frac{\partial \mathcal{L}}{\partial \lambda}\delta u'=0  \; \Longrightarrow \; R(u,\rho;v)=0 \quad\forall v$  
+$\displaystyle \frac{\partial \mathcal{L}}{\partial v}\delta v'=0  \; \Longrightarrow \; R(u,\rho;v)=0 \quad\forall v$  
 → FEM により変位 $u$ を得る。
 
 ---
