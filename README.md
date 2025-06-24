@@ -17,8 +17,8 @@
 ---
 
 ## 2. 問題設定（静解析）
-- **設計変数** : 体積密度場 $\rho(\mathbf{\theta})　\in [\rho_{\min},1]$ \\
-                例：$\rho(\mathbf{\theta}) = 0.5*(tanh(\theta)+1)$
+- **設計変数** : 体積密度場 $\rho(\mathbf{\theta}) \in [0,1]$ \\
+-                例：$\rho(\mathbf{\theta}) = 0.5*(tanh(\theta)+1)$
 - **状態変数** : 変位場 $u(\mathbf{x})$  
 - **目的関数** : $F\bigl(u,\theta\bigr)$（例：特定点の変位，構造全体のコンプライアンスなど）  
 - **残差（弱形式）** : $R\bigl(u,\theta, \delta u\bigr)=0$  
