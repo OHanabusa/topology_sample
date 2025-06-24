@@ -41,6 +41,26 @@
 3. **感度（勾配）**を評価  
 4. **密度場の更新**（MMA⁄H¹勾配法など）  
 5. 収束判定 → 収束していなければ 1. へ
+flowchart TD
+  %% --------  Topology Optimization (Static)  -------- %%
+  A[STEP 0<br/>初期化：設計密度 ρ₀] --> B[STEP 1<br/>状態方程式を FEM で解く<br/>(構造式) u(ρ)]
+  B --> C[STEP 2<br/>随伴方程式を解く<br/>(adjoint) λ]
+  C --> D[STEP 3<br/>感度解析<br/>g(x) = ∂𝓛/∂ρ]
+  
+  D --> E{{STEP 4<br/>密度更新手法}}
+  E -->|H¹ 勾配法| F[ρ ← ρ - α Δ⁻¹ g]
+  E -->|MMA| G[ρ ← MMA(g, 制約)]
+  
+  F --> H{収束判定<br/>||∇F|| < ε?}
+  G --> H
+  
+  H -- いいえ --> B
+  H -- はい --> I[最適トポロジー<br/>ρ\* を出力]
+  
+  %% Styling %%
+  classDef step fill:#f7f9fc,stroke:#202636,stroke-width:1px,rx:6px,ry:6px
+  class A,B,C,D,E,F,G,H,I step
+  class H fill:#ffe5b4
 
 ---
 
