@@ -17,23 +17,11 @@
 ---
 
 ## 2. 問題設定（静解析）
-- **設計変数** : 体積密度場 $\rho(\mathbf{\theta}) \in [0,1]$    例： $\rho(\mathbf{\theta}) = 0.5*(\text{tanh}(\mathbf{\theta})+1)$
+- **設計変数** : 体積密度場 $\rho(\mathbf{\theta}) \in [0,1] \qquad$    例： $\rho(\mathbf{\theta}) = 0.5*(\text{tanh}(\mathbf{\theta})+1)$
 - **状態変数** : 変位場 $u(\mathbf{x})$  
-- **目的関数** : $F\bigl(u,\theta\bigr)$（例：特定点の変位，構造全体のコンプライアンスなど）  
+- **目的関数** : $F\bigl(u,\theta\bigr)$（例：特定点の変位，構造全体のコンプライアンスなど） $F(u, \theta) = \int$
 - **残差（弱形式）** : $R\bigl(u,\theta, \delta u\bigr)=0$  
 - **ラグランジアン** :  $\mathcal{L}(u,\theta,\delta u)=F(u,\theta)-R(u,\rho, \delta u)$
-
-- **設計変数** :  
-  体積密度場  
-  $\rho(\mathbf{x}) \in [\rho_{\min},1], \qquad　E(\rho) = E_{\min} + \rho^p\bigl(E_0 - E_{\min}\bigr)$  
-  ここで \(p \ge 1\) は SIMP ペナルティ指数。  
-
-- **状態変数** :  
-  変位場  
-  $$
-    u(\mathbf{x}) 
-    \;\;(\text{2 D 片持ち梁なら } u = (u_x, u_y)^{\!\top})
-  $$  
 
 - **目的関数** :  
   荷重点の鉛直変位最小化  
