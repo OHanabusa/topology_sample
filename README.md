@@ -21,36 +21,8 @@ nonlinear.pyを例として式を表す．
 - **設計変数** : 体積密度場 $\rho(\mathbf{\theta}) \in [0,1] \qquad$    例： $\rho(\mathbf{\theta}) = 0.5*(\text{tanh}(\mathbf{\theta})+1)$
 - **状態変数** : 変位場 $u$  
 - **目的関数** : $F\bigl(u,\theta\bigr)$（例：特定点の変位，構造全体のコンプライアンスなど） $F(u, \theta) = \int_{\Gamma_{ext}} f^{\text{ext}} \cdot u dx$
-- **残差（弱形式）** : $R\bigl(u,\theta, \delta u\bigr)=0 \qquad$ 例： $R(u,\theta;\delta u) = \int_{\Omega} \rho^{\,p}\,\boldsymbol{\sigma}(u) : \boldsymbol{\varepsilon}(\delta u)\,\mathrm{d}\Omega - \int_{\Gamma_N} \mathbf{t} \!\cdot\! \delta u \,\mathrm{d}\Gamma = 0 \quad \forall\,\delta u$ 
+- **残差（弱形式）** : $R\bigl(u,\theta, \delta u\bigr)=0 \qquad$ 例： $R(u,\theta;\delta u) = \int_{\Omega} \rho^{p}\,\boldsymbol{P}(u) : \delta \boldsymbol{F}(\delta u) \mathrm{d}\Omega - \int_{\Gamma_{\text{ext}}} \mathbf{t} \cdot \delta u \mathrm{d}\Gamma_{\text{ext}} = 0 \quad \forall\,\delta u$ 
 - **ラグランジアン** :  $\mathcal{L}(u,\theta,\delta u)=F(u,\theta)-R(u,\rho, \delta u)$
-
-- **目的関数** :  
-  荷重点の鉛直変位最小化  
-  $$
-    F(u,\rho) = u_y(\mathbf{x}_{\text{tip}})
-  $$  
-
-- **残差（弱形式）** :  
-  $$
-    R(u,\rho;\delta u) =
-    \int_{\Omega} \rho^{\,p}\,\boldsymbol{\sigma}(u) : \boldsymbol{\varepsilon}(\delta u)\,\mathrm{d}\Omega
-    - \int_{\Gamma_N} \mathbf{t} \!\cdot\! \delta u \,\mathrm{d}\Gamma
-    = 0 \quad \forall\,\delta u
-  $$  
-
-- **ラグランジアン** :  
-  $$
-    \mathcal{L}(u,\rho,\lambda) =
-    F(u,\rho) - 
-    \Bigl[
-      \int_{\Omega} \rho^{\,p}\,\boldsymbol{\sigma}(u) : \boldsymbol{\varepsilon}(\lambda)\,\mathrm{d}\Omega
-      - \int_{\Gamma_N} \mathbf{t} \!\cdot\! \lambda \,\mathrm{d}\Gamma
-    \Bigr]
-  $$  
-
-*（コンプライアンス最小化の場合は  
-\(F(u,\rho)=\displaystyle\int_{\Gamma_N}\mathbf{t}\!\cdot\!u\,\mathrm{d}\Gamma\) とするなど、目的関数を置き換えてください）*
-
 
 ---
 
