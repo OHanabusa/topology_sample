@@ -44,9 +44,9 @@
 
 ```mermaid
 flowchart TD
-    A["STEP 0<br/>初期密度 ρ₀"] --> B["STEP 1<br/>状態方程式 FEM<br/>u(ρ)"]
-    B --> C["STEP 2<br/>随伴方程式<br/>λ"]
-    C --> D["STEP 3<br/>感度解析<br/>g = ∂L/∂ρ"]
+    A["STEP 0<br/>初期密度 ρ₀"] --> B["STEP 1<br/>状態方程式 FEM<br/>∂L/∂u'"]
+    B --> C["STEP 2<br/>随伴方程式<br/>∂L/∂u"]
+    C --> D["STEP 3<br/>感度解析<br/>∂L/∂ρ"]
     D --> E{{"STEP 4<br/>密度更新"}}
 
     %% ★ ラベル付きエッジはスペースを入れないこと！
