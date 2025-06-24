@@ -1,0 +1,7 @@
+mesh_name = "beam2d/beamShort_size0_1.xml"
+region_name = "beam2d/beamShort_size0_1_facet_region.xml"
+
+dim = 2
+
+label_fix = 1
+label_ext = 2
