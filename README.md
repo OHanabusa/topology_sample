@@ -45,33 +45,28 @@
 ```mermaid
 flowchart TD
     %% ----------  Topology Optimization (Static)  ---------- %%
-    %% ノード定義
-    A["STEP&nbsp;0<br/>初期化:<br/>設計密度&nbsp;&rho;<sub>0</sub>"]
-    B["STEP&nbsp;1<br/>状態方程式を FEM で解く<br/>u(&rho;)"]
-    C["STEP&nbsp;2<br/>随伴方程式を解く<br/>&lambda;"]
-    D["STEP&nbsp;3<br/>感度解析<br/>g = &part;&Lscr;/&part;&rho;"]
-    E{{"STEP&nbsp;4<br/>密度更新手法"}}
-    F["H<sup>1</sup> 勾配法<br/>&rho; = &rho; - &alpha;&nbsp;&Delta;<sup>-1</sup>g"]
-    G["MMA<br/>&rho; = MMA(g,&nbsp;制約)"]
-    H{{収束判定<br/>&vert;&vert;&nabla;F&vert;&vert;&nbsp;&lt;&nbsp;&epsilon;?}}
-    I["最適トポロジー<br/>&rho;<sup>*</sup>"]
+    %% ノード
+    A["STEP 0<br/>初期密度 ρ0"]
+    B["STEP 1<br/>状態方程式 FEM<br/>u(ρ)"]
+    C["STEP 2<br/>随伴方程式<br/>λ"]
+    D["STEP 3<br/>感度解析<br/>g = ∂L/∂ρ"]
+    E{{"STEP 4<br/>密度更新"}}
+    F["H1 勾配法"]
+    G["MMA"]
+    H{{"収束判定<br/>||∇F|| < ε?"}}
+    I["最適トポロジー<br/>ρ*"]
 
-    %% リンク
+    %% エッジ（必ず改行）
     A --> B
     B --> C
     C --> D
     D --> E
-    E -->|H<sup>1</sup>| F
-    E -->|MMA|      G
+    E -->|H1|  F
+    E -->|MMA| G
     F --> H
     G --> H
-    H -- "いいえ" --> B
-    H -- "はい"   --> I
-
-    %% スタイリング（任意）
-    classDef step fill:#f7f9fc,stroke:#202636,stroke-width:1px,rx:6,ry:6
-    class A,B,C,D,E,F,G,H,I step
-    class H fill:#ffe5b4
+    H -- "No"  --> B
+    H -- "Yes" --> I
 
 ```
 
