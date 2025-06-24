@@ -27,9 +27,8 @@
 - **残差（弱形式）** : $R\bigl(u,\rho;v\bigr)=0$  ※$v$ はテスト関数  
 - **ラグランジアン** :  
 
-\[
-\mathcal{L}(u,\rho,\lambda)=F(u,\rho)-R(u,\rho;\lambda),
-\]
+
+$\mathcal{L}(u,\rho,\lambda)=F(u,\rho)-R(u,\rho;\lambda)$
 
 ここで $\lambda$ は随伴変数（テスト関数に対応）。
 
