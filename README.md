@@ -66,7 +66,7 @@ $\displaystyle \frac{\partial \mathcal{L}}{\partial \delta u}\delta u'=0  \quad\
 ### Step 2 : 随伴方程式の求解  
 $\displaystyle \frac{\partial \mathcal{L}}{\partial u} u'=0 $  
 
-→ 上の式を解くことで$\delta u$を得る．
+→ 上の式を解くことで $\delta u$ を得る．
 
 ---
 
