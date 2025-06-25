@@ -41,7 +41,7 @@ nonlinear.pyを例として式を表す．以下がnonlinear.pyで扱ってい�
 
 ## 4. ステップバイステップ解説
 ### Step 1 : 状態方程式の求解  
-方向微分をとるのにガトー微分する．
+方向微分をとるのにガトー微分する．ガトー微分ではある関数で微分してテスト関数をかける．
 
 $\displaystyle \frac{\partial \mathcal{L}}{\partial \delta u}\delta u'=0  \quad\forall \delta u'$  
 
