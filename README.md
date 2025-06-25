@@ -86,6 +86,7 @@ $\displaystyle g(\mathbf{\theta})=\frac{\partial \mathcal{L}}{\partial \theta} \
 - **MMA**  
 こっちの方が収束が早く，よくつかわれているので現在移行しようとしてます．
 
+### アルゴリズムのフローチャート ###
 
 ```mermaid
 flowchart TD
