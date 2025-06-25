@@ -1,5 +1,15 @@
 # Topology Optimization via Lagrangian Differentiation　静解析版 
 
+
+```
+git clone <this repo>
+cd topology_sample
+python static/nonlinear.py
+```
+
+これで動くはずなので，動かしながら以下の資料を読みながらコードと照らし合わせてください．
+動かなかったら何かアップし忘れていると思うのですぐ言ってください．
+
 ## 目次
 1. はじめに  
 2. 問題設定  
