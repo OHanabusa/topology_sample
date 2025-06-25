@@ -1,6 +1,6 @@
 # Topology Optimization via Lagrangian Differentiation　静解析版 
 
-cloneやzipとしてこのレポジトリをダウンロードして
+cloneやzipとしてこのレポジトリをダウンロードして以下で動かす．
 
 ```
 cd topology_sample
