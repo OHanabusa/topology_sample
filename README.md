@@ -31,8 +31,8 @@ nonlinear.pyを例として式を表す．
 1. **状態方程式**（構造式）を解く  
 2. **随伴方程式**を解く  
 3. **感度（勾配）** を評価  
-4. **密度場の更新**（MMA⁄H¹勾配法など）  
-5. 収束判定 → 収束していなければ 1. へ
+4. **密度場の更新**（MMA⁄H¹勾配法などを用いて制約合憲が満たされるように更新する）  
+6. 収束判定 → 収束していなければ 1. へ
 
 ---
 
@@ -66,8 +66,9 @@ $\displaystyle g(\mathbf{\theta})=\frac{\partial \mathcal{L}}{\partial \theta} \
 
 ### Step 4 : 密度更新  
 - **H¹‐gradient**
+得られた感度を体積制約を満たしている方向に変換
   
-  $\rho^{k+1} = \rho^{k} - \alpha \, \Delta^{-1} g$
+![image](https://github.com/user-attachments/assets/2eb41c5f-8b97-4dd3-bba2-57a754f4d701)
   
 - **MMA**  
   ```text
