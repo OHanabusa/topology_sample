@@ -11,7 +11,9 @@
 ## 1. はじめに
 トポロジー最適化は**材料分布を最適化し，目標性能を最大化（または最小化）** する設計手法です．  
 この README では **ラグランジアンの微分**を用いた一般的フレームワークをまとめます．
-nonlinear.pyを例として式を表す．
+nonlinear.pyを例として式を表す．以下がnonlinear.pyで扱っている問題の設計領域
+![image](https://github.com/user-attachments/assets/e9db4823-e1b1-4497-98c9-bfa671c08dcf)
+
 
 > **キーワード**: Lagrangian, adjoint method, sensitivity analysis, SIMP, MMA, H¹‐gradient
 
