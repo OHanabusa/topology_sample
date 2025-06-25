@@ -23,7 +23,7 @@ nonlinear.pyを例として式を表す．
 - **最小化したい目的関数** : $F\bigl(u,\theta\bigr)$（例：特定点の変位，構造全体のコンプライアンスなど） $F(u, \theta) = \int_{\Gamma_{ext}} f^{\text{ext}} \cdot u dx$
 - **残差（弱形式）** : $R\bigl(u,\theta, \delta u\bigr)=0 \qquad$ 例： $R(u,\theta;\delta u) = \int_{\Omega} \rho^{p}\boldsymbol{P}(u) : \delta \boldsymbol{F}(\delta u) \mathrm{d}\Omega - \int_{\Gamma_{\text{ext}}} \mathbf{t} \cdot \delta u \mathrm{d}\Gamma_{\text{ext}} = 0 \quad \forall\,\delta u$ 
 - **ラグランジアン** :  $\mathcal{L}(u,\theta,\delta u)=F(u,\theta)-R(u,\rho, \delta u)$
-- **制約条件** : 体積制約が多い $\int_{\Omega} \rho(\theta) dx - V_{\text{lim}} <= 0$
+- **制約条件** : 体積制約が多い $\int_{\Omega} \rho(\theta) dx - V_{\text{lim}} \leqq 0$
 
 ---
 
@@ -52,21 +52,23 @@ $\displaystyle \frac{\partial \mathcal{L}}{\partial \delta u}\delta u'=0  \quad\
 
 ### Step 2 : 随伴方程式の求解  
 $\displaystyle \frac{\partial \mathcal{L}}{\partial u} u'=0 $  
+
 → 上の式を解くことで$\delta u$を得る．
 
 ---
 
 ### Step 3 : 感度解析  
 $\displaystyle g(\mathbf{\theta})=\frac{\partial \mathcal{L}}{\partial \theta} \theta'$  
+
 → を計算することで感度が得られる． 
 
 ---
 
 ### Step 4 : 密度更新  
-- **H¹‐gradient**  
-  \[
-  \rho^{k+1} = \rho^{k} - \alpha \, \Delta^{-1} g
-  \]
+- **H¹‐gradient**
+  
+  $\rho^{k+1} = \rho^{k} - \alpha \, \Delta^{-1} g$
+  
 - **MMA**  
   ```text
   minimize   MMA sub-problem
