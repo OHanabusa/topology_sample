@@ -74,9 +74,7 @@ $\displaystyle g(\mathbf{\theta})=\frac{\partial \mathcal{L}}{\partial \theta} \
 ![image](https://github.com/user-attachments/assets/2eb41c5f-8b97-4dd3-bba2-57a754f4d701)
   
 - **MMA**  
-  ```text
-  minimize   MMA sub-problem
-  subject to volume constraint
+こっちの方が収束が早く，よくつかわれているので現在移行しようとしてます．
 
 
 ```mermaid
