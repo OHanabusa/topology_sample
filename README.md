@@ -1,8 +1,8 @@
 # Topology Optimization via Lagrangian Differentiation　静解析版 
 
+cloneやzipとしてこのレポジトリをダウンロードして
 
 ```
-git clone <this repo>
 cd topology_sample
 python static/nonlinear.py
 ```
