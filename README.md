@@ -154,6 +154,5 @@ $$
    1. 摂動： $\mathbf{x}_\pm = \mathbf{x}_0 \pm h\mathbf{e}_i$
    2. 目的／制約を再計算： $F_+, F_-$
    3. 中央差分で $s_i^{\mathrm{FD}}$ を算出。
-4. **比較**（相対誤差）：
-   $E_i = \bigl|\tfrac{s_i - s_i^{\mathrm{FD}}}{\max(1,|s_i^{\mathrm{FD}}|)}\bigr|$
+4. **比較**
 
