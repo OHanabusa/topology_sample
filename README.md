@@ -155,4 +155,7 @@ $$
    2. 目的／制約を再計算： $F_+, F_-$
    3. 中央差分で $s_i^{\mathrm{FD}}$ を算出。
 4. **比較**
+5. **可視化**
+   
+![sens_diff_derive_theta1](https://github.com/user-attachments/assets/60e5913e-64e7-4257-a1d0-a85c2e690129)
 
